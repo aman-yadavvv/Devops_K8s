@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: example-deployment
+  namespace: example-namespace
+  labels:
+    app: example
+
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: example
+      
+  template:             # Pod template
+    metadata:
+      labels:
+        app: example
+    spec:
+      containers:
+      - name: example-container    # Container-name
+        image: nginx:latest       # Container image
+
+        ports:
+        - containerPort: 80       # Container port

@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: example-service
+  namespace: example-namespace
+spec:
+  selector:
+    app: example      # App label check from deployment
+
+  ports:
+  - protocol: TCP      # Protocol
+    port: 80           # Service port
+    targetPort: 80     # Container port
+  type: ClusterIP      # Service type [ClusterIP, NodePort, LoadBalancer, ExternalName]
